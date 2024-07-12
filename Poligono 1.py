@@ -6,7 +6,16 @@ pygame.init()
 
 width, height = 500, 500
 PANTALLA = pygame.display.set_mode((width, height))
-pygame.display.set_caption('Relleno de Polígonos. Polígono #1')
+pygame.display.set_caption('Relleno de Polígonos')
+
+poligono_1 = [(165, 380), (185, 360), (180, 330), (207, 345),
+              (233, 330), (230, 360), (250, 380), (220, 385),
+              (205, 410), (193, 383)]
+
+
+def dibujar_rellenar_poligono(puntos):
+    pygame.draw.polygon(PANTALLA, (0, 0, 255), puntos)
+    pygame.draw.polygon(PANTALLA, (0, 0, 0), puntos, 1)
 
 
 while True:
@@ -16,6 +25,10 @@ while True:
                 pygame.quit()
                 sys.exit()
 
+        PANTALLA.fill((255, 255, 255))
+        dibujar_rellenar_poligono(poligono_1)
+        pygame.display.flip()
     except Exception as e:
         print(f"Ocurrió un error: {e}")
-
+        pygame.quit()
+        sys.exit()
