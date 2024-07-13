@@ -11,7 +11,7 @@ pygame.display.set_caption('Relleno de Polígonos: Poligono #2')
 
 poligono_2 = [(321, 335), (288, 286), (339, 251), (374, 302)]
 
-def dibujar_rellenar_poligono(puntos):
+def poligono(puntos):
     pygame.draw.polygon(PANTALLA, (0, 0, 255), puntos)
     pygame.draw.polygon(PANTALLA, (0, 0, 0), puntos, 1)
 
@@ -24,7 +24,7 @@ while True:
                 sys.exit()
 
         PANTALLA.fill((255, 255, 255))
-        dibujar_rellenar_poligono(poligono_2)
+        poligono(poligono_2)
         pygame.display.flip()
     except Exception as e:
         print(f"Ocurrió un error: {e}")
